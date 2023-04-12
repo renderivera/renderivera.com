@@ -1,7 +1,8 @@
 import styled, { keyframes } from "styled-components";
-import portrait_path from "./assets/portrait.png";
+import portrait from "./assets/portrait-reinhard-min.jpg";
 import Paragraph from "./Paragraph";
 import Quote from "./Quote";
+import AnimatedImage from "./AnimatedImage";
 
 const Container = styled.div`
 	display: flex;
@@ -11,40 +12,13 @@ const Container = styled.div`
 	width: 100%;
 `;
 
-const H1 = styled.h1`
-	font-weight: lighter;
-`;
-
 const Content = styled.div`
-	max-width: 800px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	gap: 40px;
-`;
-
-const dropShadow = `drop-shadow(0.1px 0 0 ###) 
-drop-shadow(0 0.1px 0 ###)
-drop-shadow(-0.1px 0 0 ###) 
-drop-shadow(0 -0.1px 0 ###)`;
-
-const anima = keyframes`
-	20% { filter: ${dropShadow.replace(/###/g, "var(--color-gradient1)")}}
-	40% { filter: ${dropShadow.replace(/###/g, "var(--color-gradient2)")}}
-	60% { filter: ${dropShadow.replace(/###/g, "var(--color-gradient3)")}}
-	80% { filter: ${dropShadow.replace(/###/g, "var(--color-gradient4)")}}
-	100% { filter: ${dropShadow.replace(/###/g, "var(--color-gradient5)")}}
-`;
-
-const Portrait = styled.img`
-	max-width: 200px;
-	margin: 10px;
-	flex: 1;
-	filter: ${dropShadow.replace(/###/g, "var(--color-text)")};
-	animation: ${anima} var(--gradient-animation-duration) linear infinite
-		alternate;
 `;
 
 export default function Intro({
@@ -55,7 +29,7 @@ export default function Intro({
 	return (
 		<Container ref={navTargetRef as React.RefObject<HTMLDivElement>}>
 			<Content>
-				<Portrait src={portrait_path} />
+				<AnimatedImage src={portrait} maxWidth="200px" borderRadius="50%" />
 				<Quote />
 				<Paragraph heading="A Tale of Determination">
 					I am a hard-working and quick learner who completed a computer science

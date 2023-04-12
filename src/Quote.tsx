@@ -6,11 +6,12 @@ const Container = styled.div`
 	min-width: 300px;
 	display: flex;
 	gap: 10px;
+	margin: 5px;
 `;
 const Content = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 5px;
 `;
 
 const anima = keyframes`
@@ -21,13 +22,20 @@ const anima = keyframes`
 	100% {color: var(--color-gradient5)}
 `;
 
-const QuoteChar = styled.div`
-	font-size: 2em;
+const QuoteCharLeft = styled.div`
+	font-size: 1.5em;
 	line-height: 0.75;
 	color: var(--color-accent);
 	animation: ${anima} var(--gradient-animation-duration) linear infinite
 		alternate;
 `;
+
+const QuoteCharRight = styled(QuoteCharLeft)`
+	height: 0px;
+	margin-left: auto;
+	transform: translate(0px, -20px);
+`;
+
 const Text = styled.p`
 	margin: 0;
 	font-size: 1.2em;
@@ -41,9 +49,9 @@ const Author = styled.p`
 export default function Quote() {
 	return (
 		<Container>
-			<QuoteChar>
+			<QuoteCharLeft>
 				<FaQuoteLeft />
-			</QuoteChar>
+			</QuoteCharLeft>
 			<Content>
 				<Text>
 					As a highly passionate Full Stack Software Engineer with over 10 years
@@ -51,15 +59,9 @@ export default function Quote() {
 					solutions for renowned stakeholders like Bank of America, HBO,
 					Starbucks, and BMW.
 				</Text>
-				<QuoteChar
-					style={{
-						height: "0px",
-						marginLeft: "auto",
-						transform: "translate(-30px, -30px)",
-					}}
-				>
+				<QuoteCharRight>
 					<FaQuoteRight />
-				</QuoteChar>
+				</QuoteCharRight>
 				<Author>Reinhard Zach - Renderivera</Author>
 			</Content>
 		</Container>

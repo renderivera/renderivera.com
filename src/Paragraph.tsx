@@ -5,12 +5,11 @@ const Container = styled.div`
 	flex-direction: column;
 	flex: 1;
 	min-width: 300px;
-
 	gap: 5px;
 	transition: all 0.25s ease;
 
 	&:hover {
-		transform: translateY(-2px);
+		scale: 1.01;
 	}
 `;
 
@@ -40,8 +39,6 @@ export default function Paragraph({
 	children,
 }: {
 	heading: string;
-	color?: string;
-	background?: string;
 	children: string;
 }) {
 	return (

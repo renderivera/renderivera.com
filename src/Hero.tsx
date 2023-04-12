@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { BsChevronDown } from "react-icons/bs";
 
 const Container = styled.div`
 	position: relative;
@@ -49,18 +50,6 @@ const Line = styled.div`
 	justify-content: center;
 	font-size: 11px;
 `;
-
-const Navigator = styled.div`
-	display: flex;
-	margin-top: auto;
-	margin-bottom: 10px;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 42px;
-	line-height: 1.25;
-	font-size: 5px;
-`;
-
 const colorChange = keyframes`
 	20% {color: var(--color-gradient1)}
 	40% {color: var(--color-gradient2)}
@@ -72,19 +61,27 @@ const colorChange = keyframes`
 const bounce = keyframes`
 	100% {transform: translateY(-15px);}
 `;
+const Navigator = styled.div`
+	display: flex;
+	margin-top: auto;
+	margin-bottom: 10px;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 42px;
+	line-height: 1.25;
+	font-size: 25px;
+	cursor: pointer;
+	animation: ${colorChange} var(--gradient-animation-duration) linear infinite
+			alternate,
+		${bounce} 2s ease-in-out infinite alternate;
+`;
 
 const Char = styled.div`
 	animation: ${colorChange} var(--gradient-animation-duration) linear infinite
 		alternate;
 `;
 
-const NavChar = styled.div`
-	animation: ${colorChange} var(--gradient-animation-duration) linear infinite
-			alternate,
-		${bounce} 1s ease-in-out infinite alternate;
-`;
-
-const l1 = `
+const asciiLogo = `
 ██████╗ ███████╗███╗  ██╗██████╗ ███████╗██████╗ ██╗██╗   ██╗███████╗██████╗  █████╗ 
 ██╔══██╗██╔════╝████╗ ██║██╔══██╗██╔════╝██╔══██╗██║██║   ██║██╔════╝██╔══██╗██╔══██╗
 ██████╔╝█████╗  ██╔██╗██║██║  ██║█████╗  ██████╔╝██║╚██╗ ██╔╝█████╗  ██████╔╝███████║
@@ -92,16 +89,7 @@ const l1 = `
 ██║  ██║███████╗██║ ╚███║██████╔╝███████╗██║  ██║██║  ╚██╔╝  ███████╗██║  ██║██║  ██║
 ╚═╝  ╚═╝╚══════╝╚═╝  ╚══╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
 `;
-
-const arrow = `
-█ █ █ █ █ █ █ █
- █ █ █ █ █ █ █ 
-  █ █ █ █ █ █  
-   █ █ █ █ █   
-    █ █ █ █    
-     █ █ █     
-      █ █      
-       █       `;
+const asciiLogoChunks = asciiLogo.match(/.{1,5}/g) || [];
 
 export default function Hero({
 	navTargetRef,
@@ -111,7 +99,7 @@ export default function Hero({
 	return (
 		<Container>
 			<Logo>
-				{[...l1].map((v, i) => (
+				{asciiLogoChunks.map((v, i) => (
 					<Char
 						key={i}
 						ref={(r) => {
@@ -127,7 +115,7 @@ export default function Hero({
 			<Bg>
 				{[...Array(8)].map((_, i) => (
 					<Line key={i}>
-						{[...Array(32)].map((_, j) => (
+						{[...Array(10)].map((_, j) => (
 							<Char
 								key={j}
 								ref={(r) => {
@@ -136,7 +124,7 @@ export default function Hero({
 									r.style.setProperty("animation-delay", o + "ms");
 								}}
 							>
-								════════════
+								════════════════════════════════════
 							</Char>
 						))}
 					</Line>
@@ -147,19 +135,12 @@ export default function Hero({
 					navTargetRef.current?.scrollIntoView({ behavior: "smooth" })
 				}
 			>
-				{[...arrow].map((v, i) => (
-					<NavChar
-						key={i}
-						ref={(r) => {
-							if (!r) return;
-							const o = (r.offsetLeft + r.offsetTop + i) * 2;
-							r.style.setProperty("animation-delay", o + "ms");
-						}}
-					>
-						{v}
-					</NavChar>
-				))}
+				<BsChevronDown />
 			</Navigator>
 		</Container>
 	);
 }
+
+/*
+
+*/
