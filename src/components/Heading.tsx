@@ -7,27 +7,13 @@ const Container = styled.div`
 	min-width: 300px;
 	gap: 5px;
 	transition: all 0.25s ease;
-
-	&:hover {
-		scale: 1.01;
-	}
-`;
-
-const anima = keyframes`
-	20% {border-color: var(--color-gradient1)}
-	40% {border-color: var(--color-gradient2)}
-	60% {border-color: var(--color-gradient3)}
-	80% {border-color: var(--color-gradient4)}
-	100% {border-color: var(--color-gradient5)}
 `;
 
 const Heading = styled.h2`
 	margin: 0;
-	font-weight: lighter;
 	padding: 0 5px;
-	border-bottom: 1px solid var(--color-accent);
-	animation: ${anima} var(--gradient-animation-duration) linear infinite
-		alternate;
+	font-weight: lighter;
+	border-bottom: 1px solid var(--color-text);
 `;
 const Text = styled.p`
 	margin: 0;

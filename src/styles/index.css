@@ -5,22 +5,23 @@
 	font-weight: 400;
 
 	--color-text: #d4d4d4;
-	--color-accent: #f5ff64;
 	--color-background: #1e1e1e;
-	--color-background-light: #2a2a2a;
 
-	--color-gradient1: #b29d16;
-	--color-gradient2: #ce9178;
-	--color-gradient3: #c586c0;
-	--color-gradient4: #9cdcfe;
-	--color-gradient5: #4ec9b0;
+	--color-gradient1: #005f6b;
+	--color-gradient2: #ff6b6b;
 	--gradient-animation-duration: 5s;
+	--content-width: 800px;
+	--min-wave-width: 800px;
+	--absolute-width: 100vw;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+}
+::-webkit-scrollbar {
+	display: none;
 }
 
 a {
@@ -67,4 +68,25 @@ button:focus-visible {
 	scale: 0.5;
 	filter: blur(4px);
 	opacity: 0.8 !important;
+}
+
+img {
+	pointer-events: none;
+	user-select: none;
+}
+
+.image-portrait {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+}
+.image-chatgpt-phone {
+	width: 300px;
+	height: 650px;
+	object-fit: cover;
+}
+.image-chatgpt-diagram {
+	width: 300px;
+	height: 425px;
+	object-fit: cover;
 }

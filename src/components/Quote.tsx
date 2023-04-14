@@ -14,20 +14,9 @@ const Content = styled.div`
 	gap: 5px;
 `;
 
-const anima = keyframes`
-	20% {color: var(--color-gradient1)}
-	40% {color: var(--color-gradient2)}
-	60% {color: var(--color-gradient3)}
-	80% {color: var(--color-gradient4)}
-	100% {color: var(--color-gradient5)}
-`;
-
 const QuoteCharLeft = styled.div`
 	font-size: 1.5em;
 	line-height: 0.75;
-	color: var(--color-accent);
-	animation: ${anima} var(--gradient-animation-duration) linear infinite
-		alternate;
 `;
 
 const QuoteCharRight = styled(QuoteCharLeft)`
@@ -40,10 +29,6 @@ const Text = styled.p`
 	margin: 0;
 	font-size: 1.2em;
 	font-style: italic;
-`;
-const Author = styled.p`
-	margin: 0;
-	font-weight: lighter;
 `;
 
 export default function Quote() {
@@ -62,7 +47,6 @@ export default function Quote() {
 				<QuoteCharRight>
 					<FaQuoteRight />
 				</QuoteCharRight>
-				<Author>Reinhard Zach - Renderivera</Author>
 			</Content>
 		</Container>
 	);
