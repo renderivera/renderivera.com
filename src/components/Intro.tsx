@@ -22,13 +22,9 @@ const Content = styled.div`
 	gap: 40px;
 `;
 
-export default function Intro({
-	navRef,
-}: {
-	navRef: RefObject<HTMLDivElement | undefined>;
-}) {
+export default function Intro() {
 	return (
-		<Container ref={navRef as RefObject<HTMLDivElement>}>
+		<Container className="nav-target" id="Intro">
 			<Content>
 				<AnimatedImage
 					src={portrait}

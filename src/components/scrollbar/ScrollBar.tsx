@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import NavTarget from "../../types/NavTarget";
 import Progress from "./Progress";
 import Navigator from "./Navigator";
 
@@ -12,15 +11,11 @@ const Container = styled.div`
 	z-index: 100;
 `;
 
-export default function ScrollBar({ navTargets }: { navTargets: NavTarget[] }) {
-	navTargets.forEach((target, i) => {
-		console.log(target.ref.current);
-	});
-
+export default function ScrollBar() {
 	return (
 		<Container>
 			<Progress />
-			<Navigator navTargets={navTargets} />
+			<Navigator />
 		</Container>
 	);
 }

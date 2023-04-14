@@ -1,8 +1,5 @@
 import styled from "styled-components";
-import NavTarget from "../../types/NavTarget";
-import { RefObject, useState, useEffect } from "react";
-
-const Container = styled.div``;
+import { useState, useEffect } from "react";
 
 const NavigatorDot = styled.div`
 	height: 20px;
@@ -50,17 +47,24 @@ const NavigatorContainer = styled.div`
 	}
 `;
 
-export default function Navigator({ navTargets }: { navTargets: NavTarget[] }) {
+export default function Navigator() {
+	const [navTargets, setNavTargets] = useState<HTMLElement[]>([]);
+
+	useEffect(() => {
+		const navTargetsTemp = document.getElementsByClassName("nav-target");
+		const navs = [] as HTMLElement[];
+
+		for (let i = 0; i < navTargetsTemp.length; i++) {
+			navs.push(navTargetsTemp[i] as HTMLElement);
+		}
+		setNavTargets(navs);
+	}, []);
+
 	return (
-		<Container>
+		<>
 			{navTargets.map((target, i) => {
-				console.log(target.ref.current);
-
-				if (!target.ref.current) return;
-
 				const factor =
-					(target.ref.current.offsetTop + window.innerHeight) /
-					document.body.scrollHeight;
+					(target.offsetTop + window.innerHeight) / document.body.scrollHeight;
 
 				const ratio = Math.min(factor * 100, 100).toFixed(2);
 				const top = `${ratio}%`;
@@ -69,15 +73,13 @@ export default function Navigator({ navTargets }: { navTargets: NavTarget[] }) {
 					<NavigatorContainer
 						key={i}
 						style={{ top }}
-						onPointerDown={() =>
-							target.ref.current?.scrollIntoView({ behavior: "smooth" })
-						}
+						onPointerDown={() => target.scrollIntoView({ behavior: "smooth" })}
 					>
-						<NavigatorText>{target.title}</NavigatorText>
+						<NavigatorText>{target.id}</NavigatorText>
 						<NavigatorDot />
 					</NavigatorContainer>
 				);
 			})}
-		</Container>
+		</>
 	);
 }

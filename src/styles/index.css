@@ -38,6 +38,13 @@ body {
 	display: flex;
 	color: var(--color-text);
 	background-color: var(--color-background);
+	opacity: 0;
+	animation: fadeIn 0.5s ease-in-out forwards;
+}
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
 }
 
 h1 {

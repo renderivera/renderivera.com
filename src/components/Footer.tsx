@@ -26,13 +26,9 @@ const Text = styled.div`
 	width: 100%;
 `;
 
-export default function Footer({
-	navRef,
-}: {
-	navRef: RefObject<HTMLDivElement | undefined>;
-}) {
+export default function Footer() {
 	return (
-		<Container ref={navRef as RefObject<HTMLDivElement>}>
+		<Container className="nav-target" id="End">
 			<Text>© 2023 Renderivera</Text>
 			<Wave src={seperatorTop} />
 		</Container>

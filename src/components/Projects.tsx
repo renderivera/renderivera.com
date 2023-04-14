@@ -46,19 +46,13 @@ const SubHeading = styled.h3`
 	margin-top: 50px;
 `;
 
-export default function Projects({
-	navRefCodegpt,
-	navRefEcommerce,
-}: {
-	navRefCodegpt: RefObject<HTMLDivElement | undefined>;
-	navRefEcommerce: RefObject<HTMLDivElement | undefined>;
-}) {
+export default function Projects() {
 	return (
 		<Container>
 			<Seperator />
 			<H1>Sample Projects</H1>
 			<ProjectContainer>
-				<div ref={navRefCodegpt as RefObject<HTMLDivElement>}>
+				<div className="nav-target" id="CodeGPT">
 					<Heading heading="CodeGPT.ninja">
 						CodeGPT.ninja is a web app that allows you to generate code using
 						GPT-3. It is built using React, Next.js, and Tailwind CSS.
@@ -163,7 +157,7 @@ export default function Projects({
 			</ProjectContainer>
 			<Seperator />
 			<ProjectContainer>
-				<div ref={navRefEcommerce as RefObject<HTMLDivElement>}>
+				<div className="nav-target" id="E-Com">
 					<Heading heading="E-Commerce">
 						A basic E-commerce web application using Stripe. A basic E-commerce
 						web application using Stripe. A basic E-commerce web application

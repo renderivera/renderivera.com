@@ -98,20 +98,15 @@ const SubHeading = styled.h2`
 	font-weight: lighter;
 `;
 
-export default function Hero({
-	navTargetRef,
-	navRef,
-}: {
-	navTargetRef?: RefObject<HTMLDivElement | undefined>;
-	navRef: RefObject<HTMLDivElement | undefined>;
-}) {
+export default function Hero() {
 	function scroll() {
-		navTargetRef?.current?.scrollIntoView({ behavior: "smooth" });
+		const target = document.getElementById("Intro");
+		target?.scrollIntoView({ behavior: "smooth" });
 	}
 
 	return (
 		<Main>
-			<Container ref={navRef as RefObject<HTMLDivElement>}>
+			<Container className="nav-target" id="Start">
 				<Content>
 					<WaveTop src={waveTop} />
 					<Logo>
