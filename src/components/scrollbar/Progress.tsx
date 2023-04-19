@@ -1,74 +1,75 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-
-const thumbHeight = 50;
-const scrollBarWidth = 10;
+import { navType } from "../../types/navType";
 
 const ThumbRectangle = styled.div`
-	height: ${thumbHeight}px;
-	width: ${scrollBarWidth}px;
+	width: var(--progress-bar-width);
 	background-color: var(--color-text);
+	box-shadow: var(--navigator-box-shadow);
 
-	opacity: 0.8;
+	border-radius: var(--border-radius);
+
 	position: fixed;
 	top: 0;
 	right: 0;
 	z-index: 110;
-
-	mix-blend-mode: difference;
 `;
 
-const ThumbText = styled.p`
-	font-size: small;
-	background-color: var(--color-background);
-	margin: 0;
-	padding: 1px 2px 2px 2px;
-	line-height: 1;
-	opacity: 0;
-	transition: all 0.2s ease-in-out;
-	user-select: none;
-`;
-const Container = styled.div`
-	height: ${thumbHeight}px;
-	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: 110;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+const scrollRerenderFactor = 0.05;
 
-	&:hover {
-		${ThumbText} {
-			opacity: 1;
-		}
-		${ThumbRectangle} {
-			opacity: 1;
-		}
-	}
-`;
-
-export default function Progress() {
-	const [scrollPosition, setScrollPosition] = useState("0");
+export default function Progress({
+	windowHeight,
+	documentHeight,
+	navs,
+	passedNavs,
+	setPassedNavs,
+}: {
+	windowHeight: number;
+	documentHeight: number;
+	navs: navType[];
+	passedNavs: boolean[];
+	setPassedNavs: React.Dispatch<React.SetStateAction<boolean[]>>;
+}) {
+	const [scrollY, setScrollY] = useState(window.scrollY);
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const screenHeight = window.innerHeight;
-			const scrollY = window.scrollY;
-			const totalHeight = document.body.scrollHeight;
-
-			const ratio = (scrollY + screenHeight) / totalHeight;
-			const percent = (ratio * 100).toFixed(2);
-			setScrollPosition(`${percent}%`);
+			const y =
+				Math.round(window.scrollY * scrollRerenderFactor) /
+				scrollRerenderFactor;
+			if (y !== scrollY) {
+				setScrollY(y);
+			}
 		};
 
 		handleScroll();
 
-		window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll, { passive: true });
 
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, []);
+	}, [scrollY]);
+
+	const ratio = (scrollY + windowHeight) / documentHeight;
+	const percent = (ratio * 100).toFixed(2);
+	const scrollPosition = `${percent}%`;
+
+	useEffect(() => {
+		if (!windowHeight || !documentHeight) return;
+
+		let update = false;
+
+		const passedNavsTemp = navs.map((nav, i) => {
+			const pass = nav.position <= ratio + 0.005;
+
+			if (pass != passedNavs[i]) update = true;
+
+			return pass;
+		});
+
+		if (update) setPassedNavs(passedNavsTemp);
+	}, [scrollY]);
+
 	return <ThumbRectangle style={{ height: scrollPosition }} />;
 }

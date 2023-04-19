@@ -13,6 +13,16 @@
 	--content-width: 800px;
 	--min-wave-width: 800px;
 	--absolute-width: 100vw;
+	--border-radius: 2px;
+	--progress-bar-width: 4px;
+	--progress-bar-color: #d4d4d4;
+	--menu-background-color: #d4d4d4;
+	--menu-background-color-passed: #8e8e8e;
+	--menu-text-color: #1e1e1e;
+	--menu-text-color-passed: #d4d4d4;
+	--navigator-size: 40px;
+	--navigator-icon-size: 35px;
+	--navigator-box-shadow: 0 0 4px var(--color-background);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -72,7 +82,6 @@ button:focus-visible {
 }
 
 .atropos-highlight {
-	scale: 0.5;
 	filter: blur(4px);
 	opacity: 0.8 !important;
 }
@@ -82,18 +91,31 @@ img {
 	user-select: none;
 }
 
-.image-portrait {
+.image-portrait img {
 	width: 200px;
 	height: 200px;
-	object-fit: cover;
 }
+
+.image-portrait .atropos-inner {
+	border-radius: 50%; /* make reflection a circle */
+}
+
 .image-chatgpt-phone {
+	margin: 40px;
+}
+
+.image-chatgpt-phone .atropos-inner {
+	border-radius: 20px; /* make reflection a circle */
+}
+
+.image-chatgpt-phone img {
 	width: 300px;
 	height: 650px;
-	object-fit: cover;
 }
 .image-chatgpt-diagram {
+	margin: 40px;
+}
+.image-chatgpt-diagram img {
 	width: 300px;
 	height: 425px;
-	object-fit: cover;
 }

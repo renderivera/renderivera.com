@@ -1,15 +1,15 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import portrait from "../assets/portrait-reinhard-min.jpg";
 import Heading from "./Heading";
 import Quote from "./Quote";
 import AnimatedImage from "./AnimatedImage";
-import { RefObject } from "react";
 
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	width: var(--absolute-width);
 	max-width: var(--content-width);
 `;
 
@@ -30,7 +30,6 @@ export default function Intro() {
 					src={portrait}
 					description="Reinhard Zach, Renderivera"
 					className="image-portrait"
-					borderRadius="50%"
 				/>
 				<Quote />
 				<Heading heading="A Tale of Determination">

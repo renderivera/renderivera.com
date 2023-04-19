@@ -1,9 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import { BsChevronDown } from "react-icons/bs";
-import waveBottom from "../assets/hero-wave-bottom-2.svg";
-import waveTop from "../assets/hero-wave-top-2.svg";
+import waveBottom from "../assets/hero-wave-bottom.svg";
+import waveTop from "../assets/hero-wave-top.svg";
 import seperatorTop from "../assets/seperator-bottom.svg";
-import { RefObject } from "react";
 
 const Main = styled.div`
 	width: var(--absolute-width);
@@ -65,6 +64,13 @@ const WaveBottom = styled(wave)`
 const SeperatorTop = styled.div`
 	height: 100px;
 	min-width: var(--min-wave-width);
+	transform-origin: top;
+	@media (min-aspect-ratio: 16/9) {
+		transform: scaleY(0.75);
+	}
+	@media (min-aspect-ratio: 20/9) {
+		transform: scaleY(0.5);
+	}
 `;
 
 const SeperatorTopImg = styled.img`
@@ -106,7 +112,7 @@ export default function Hero() {
 
 	return (
 		<Main>
-			<Container className="nav-target" id="Start">
+			<Container>
 				<Content>
 					<WaveTop src={waveTop} />
 					<Logo>

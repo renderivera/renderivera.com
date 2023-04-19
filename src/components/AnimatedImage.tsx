@@ -27,27 +27,18 @@ const Description = styled.p`
 `;
 
 export default function AnimatedImage({
-	margin,
-	borderRadius,
 	src,
 	className,
 	description,
 }: {
-	margin?: string;
-	borderRadius?: string;
 	src: string;
 	className: string;
 	description: string;
 }) {
 	return (
-		<Container style={{ margin }}>
+		<Container className={className}>
 			<FApo rotateXMax={5} rotateYMax={5} shadow={false} activeOffset={0}>
-				<img
-					className={className}
-					src={src}
-					style={{ borderRadius }}
-					alt={description}
-				/>
+				<img src={src} alt={description} />
 			</FApo>
 			<Description>{description}</Description>
 		</Container>
