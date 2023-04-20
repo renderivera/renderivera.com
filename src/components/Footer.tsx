@@ -30,7 +30,7 @@ export default function Footer() {
 	return (
 		<Container className="nav-target" id="End">
 			<Text>© 2023 Renderivera</Text>
-			<Wave src={seperatorTop} />
+			<Wave src={seperatorTop} alt="wave background" />
 		</Container>
 	);
 }

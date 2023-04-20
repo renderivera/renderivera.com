@@ -11,24 +11,33 @@
 	--color-gradient2: #ff6b6b;
 	--gradient-animation-duration: 5s;
 	--content-width: 800px;
+	--intro-paragraph-width: 300px;
 	--min-wave-width: 800px;
 	--absolute-width: 100vw;
-	--border-radius: 2px;
-	--progress-bar-width: 4px;
-	--progress-bar-color: #d4d4d4;
+	--padded-width: calc(var(--absolute-width) - 20px);
+	--border-radius: 0;
+	--progress-bar-width: 2px;
+	--progress-bar-color: #ff6b6b;
 	--menu-background-color: #d4d4d4;
-	--menu-background-color-passed: #8e8e8e;
+	--menu-background-color-passed: #005f6b;
 	--menu-text-color: #1e1e1e;
-	--menu-text-color-passed: #d4d4d4;
-	--navigator-size: 40px;
-	--navigator-icon-size: 35px;
-	--navigator-box-shadow: 0 0 4px var(--color-background);
+	--menu-text-color-passed: #ff6b6b;
+	--navigator-width: 40px;
+	--navigator-height: 40px;
+	--navigator-width-collapsed: 8px;
+	--navigator-height-collapsed: 60px;
+	--navigator-icon-size: 30px;
+	--navigator-box-shadow-passed: inset 0 0 20px 4px var(--color-gradient2);
+	--navigator-box-shadow-passed-collapsed: inset 0 0 4px 2px
+		var(--color-gradient2);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
 ::-webkit-scrollbar {
 	display: none;
@@ -58,8 +67,15 @@ body {
 }
 
 h1 {
-	font-size: 3.2em;
+	font-size: 2.2em;
 	line-height: 1.1;
+	font-weight: lighter;
+}
+
+h2 {
+	font-size: 1.5em;
+	line-height: 1.1;
+	font-weight: lighter;
 }
 
 button {
@@ -88,6 +104,7 @@ button:focus-visible {
 
 img {
 	pointer-events: none;
+	-webkit-user-select: none;
 	user-select: none;
 }
 

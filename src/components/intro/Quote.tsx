@@ -31,19 +31,14 @@ const Text = styled.p`
 	font-style: italic;
 `;
 
-export default function Quote() {
+export default function Quote({ children }: { children: React.ReactNode }) {
 	return (
 		<Container>
 			<QuoteCharLeft>
 				<FaQuoteLeft />
 			</QuoteCharLeft>
 			<Content>
-				<Text>
-					As a highly passionate Full Stack Software Engineer with over 10 years
-					of professional experience, I have had the privilege of developing
-					solutions for renowned stakeholders like Bank of America, HBO,
-					Starbucks, and BMW.
-				</Text>
+				<Text>{children}</Text>
 				<QuoteCharRight>
 					<FaQuoteRight />
 				</QuoteCharRight>

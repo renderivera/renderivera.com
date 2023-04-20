@@ -38,8 +38,8 @@ const WaveBottom = styled(wave)`
 export default function Seperator() {
 	return (
 		<Container>
-			<WaveTop src={seperatorTop} />
-			<WaveBottom src={seperatorBottom} />
+			<WaveTop src={seperatorTop} alt="wave background" />
+			<WaveBottom src={seperatorBottom} alt="wave background" />
 		</Container>
 	);
 }

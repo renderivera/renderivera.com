@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Hero from "./components/Hero";
-import Intro from "./components/Intro";
+import Intro from "./components/intro/Intro";
 import CodeGpt from "./components/projects/CodeGpt";
 import Ecommerce from "./components/projects/Ecommerce";
 import ScrollBar from "./components/scrollbar/ScrollBar";
@@ -70,6 +70,7 @@ export default function App() {
 			<Section ref={gptNav.element}>
 				<CodeGpt />
 			</Section>
+			<Seperator />
 			<Section ref={ecomNav.element}>
 				<Ecommerce />
 			</Section>

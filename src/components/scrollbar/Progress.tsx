@@ -2,30 +2,29 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { navType } from "../../types/navType";
 
-const ThumbRectangle = styled.div`
+const Progressbar = styled.div`
 	width: var(--progress-bar-width);
-	background-color: var(--color-text);
-	box-shadow: var(--navigator-box-shadow);
+	background-color: var(--progress-bar-color);
 
 	border-radius: var(--border-radius);
 
 	position: fixed;
 	top: 0;
 	right: 0;
-	z-index: 110;
+	z-index: 210;
 `;
 
 const scrollRerenderFactor = 0.05;
 
 export default function Progress({
 	windowHeight,
-	documentHeight,
+	totalHeight: documentHeight,
 	navs,
 	passedNavs,
 	setPassedNavs,
 }: {
 	windowHeight: number;
-	documentHeight: number;
+	totalHeight: number;
 	navs: navType[];
 	passedNavs: boolean[];
 	setPassedNavs: React.Dispatch<React.SetStateAction<boolean[]>>;
@@ -71,5 +70,5 @@ export default function Progress({
 		if (update) setPassedNavs(passedNavsTemp);
 	}, [scrollY]);
 
-	return <ThumbRectangle style={{ height: scrollPosition }} />;
+	return <Progressbar style={{ height: scrollPosition }} />;
 }

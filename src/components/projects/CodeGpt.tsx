@@ -11,18 +11,31 @@ import {
 	SubHeading,
 } from "./StyleComponents";
 
+import { BsGithub, BsGlobe } from "react-icons/bs";
+
 export default function CodeGpt() {
 	return (
 		<Container>
-			<Heading>CodeGPT</Heading>
+			<Heading>CodeGPT.ninja</Heading>
 			<Paragraph>
 				CodeGPT.ninja is a web app that allows you to generate code using GPT-3.
 				It is built using React, Next.js, and Tailwind CSS.
 			</Paragraph>
 			<LinkList>
-				<Link href="https://codegpt.ninja">Live Project</Link>|
-				<Link href="https://codegpt.ninja">Client Github Repo</Link>|
-				<Link href="https://codegpt.ninja">Server Github Repo</Link>
+				<Link href="https://codegpt.ninja">
+					<BsGlobe />
+					<p>Live</p>
+				</Link>
+
+				<Link href="https://codegpt.ninja">
+					<BsGithub />
+					<p>Client</p>
+				</Link>
+
+				<Link href="https://codegpt.ninja">
+					<BsGithub />
+					<p>Server</p>
+				</Link>
 			</LinkList>
 
 			<SubHeading>Overview</SubHeading>

@@ -1,5 +1,4 @@
-import styled, { keyframes } from "styled-components";
-import { BsChevronDown } from "react-icons/bs";
+import styled from "styled-components";
 import waveBottom from "../assets/hero-wave-bottom.svg";
 import waveTop from "../assets/hero-wave-top.svg";
 import seperatorTop from "../assets/seperator-bottom.svg";
@@ -18,20 +17,6 @@ const Container = styled.div`
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-`;
-
-const bounce = keyframes`
-	100% {transform: translateY(-15px);}
-`;
-
-const Navigator = styled.div`
-	margin-bottom: 10px;
-	position: absolute;
-	bottom: 0;
-	font-size: 40px;
-	cursor: pointer;
-	z-index: 10;
-	animation: ${bounce} 2s ease-in-out infinite alternate;
 `;
 
 const Content = styled.div`
@@ -105,28 +90,20 @@ const SubHeading = styled.h2`
 `;
 
 export default function Hero() {
-	function scroll() {
-		const target = document.getElementById("Intro");
-		target?.scrollIntoView({ behavior: "smooth" });
-	}
-
 	return (
 		<Main>
 			<Container>
 				<Content>
-					<WaveTop src={waveTop} />
+					<WaveTop src={waveTop} alt="wave background" />
 					<Logo>
 						<Heading>Renderivera</Heading>
 						<SubHeading>Full Stack Development</SubHeading>
 					</Logo>
-					<WaveBottom src={waveBottom} />
+					<WaveBottom src={waveBottom} alt="wave background" />
 				</Content>
-				<Navigator onClick={scroll}>
-					<BsChevronDown />
-				</Navigator>
 			</Container>
 			<SeperatorTop>
-				<SeperatorTopImg src={seperatorTop} />
+				<SeperatorTopImg src={seperatorTop} alt="wave background" />
 			</SeperatorTop>
 		</Main>
 	);

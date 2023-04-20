@@ -1,10 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	min-width: 300px;
+	min-width: var(--intro-paragraph-width);
 	gap: 5px;
 	transition: all 0.25s ease;
 `;
