@@ -29,7 +29,7 @@ export const Paragraph = styled.p`
 	min-width: 50%;
 `;
 
-export const SubHeading = styled.h3`
+export const SubHeading = styled.h2`
 	margin: 0;
 	margin-top: 50px;
 `;

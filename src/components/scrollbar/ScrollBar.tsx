@@ -97,6 +97,15 @@ const NavigatorContainer = styled.div<{ menuOpen: boolean; top: string }>`
 	}
 `;
 
+const MenuIcon = styled.div<{ show: boolean }>`
+	transition: all 0.5s ease-in-out;
+	transform-origin: center;
+	opacity: ${({ show }) => (show ? "1" : "0")};
+	position: absolute;
+	top: 5px;
+	right: 5px;
+`;
+
 const Menu = styled.div`
 	position: fixed;
 	color: var(--menu-text-color);
@@ -111,15 +120,16 @@ const Menu = styled.div`
 	box-shadow: var(--navigator-box-shadow);
 	z-index: 150;
 	cursor: pointer;
-`;
-
-const MenuIcon = styled.div<{ show: boolean }>`
 	transition: all 0.5s ease-in-out;
-	transform-origin: center;
-	opacity: ${({ show }) => (show ? "1" : "0")};
-	position: absolute;
-	top: 5px;
-	right: 5px;
+
+	:hover {
+		background-color: var(--color-gradient1);
+		box-shadow: var(--navigator-box-shadow-passed);
+
+		${MenuIcon} {
+			color: var(--color-gradient2);
+		}
+	}
 `;
 
 export default function ScrollBar({ navs }: { navs: navType[] }) {

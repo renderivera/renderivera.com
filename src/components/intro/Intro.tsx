@@ -33,6 +33,11 @@ const SocialLink = styled.a`
 	align-items: center;
 	justify-content: center;
 	gap: 4px;
+
+	p {
+		margin: 0;
+		line-height: 1;
+	}
 `;
 
 export default function Intro() {
@@ -54,11 +59,11 @@ export default function Intro() {
 			<Socials>
 				<SocialLink href="https://twitter.com/renderivera">
 					<BsTwitter />
-					<span>Twitter</span>
+					<p>Twitter</p>
 				</SocialLink>
 				<SocialLink href="https://github.com/renderivera">
 					<BsGithub />
-					<span>Github</span>
+					<p>Github</p>
 				</SocialLink>
 			</Socials>
 			<FlexRow>
