@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import Atropos from "atropos/react";
 
 const float = keyframes`
 	0% { transform: rotateY(-10deg) rotateX(-2deg) rotate(-0.5deg) translateY(-3px)  }
@@ -16,7 +15,7 @@ const Container = styled.div`
 	transition: all 0.5s;
 `;
 
-const FApo = styled(Atropos)`
+const Image = styled.img`
 	animation: ${float} var(--gradient-animation-duration) ease-in-out infinite
 		alternate;
 `;
@@ -37,9 +36,7 @@ export default function AnimatedImage({
 }) {
 	return (
 		<Container className={className}>
-			<FApo rotateXMax={5} rotateYMax={5} shadow={false} activeOffset={0}>
-				<img src={src} alt={description} />
-			</FApo>
+			<Image src={src} alt={description} />
 			<Description>{description}</Description>
 		</Container>
 	);
