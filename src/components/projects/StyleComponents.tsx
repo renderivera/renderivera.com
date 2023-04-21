@@ -25,8 +25,13 @@ export const Content = styled.div`
 
 export const Paragraph = styled.p`
 	flex: 1;
-	margin: 5px;
-	min-width: 50%;
+	margin: 0 10px 20px 10px;
+	min-width: 51%;
+`;
+
+export const Flex = styled.div`
+	flex: 1;
+	min-width: 51%;
 `;
 
 export const SubHeading = styled.h2`

@@ -12,6 +12,7 @@ const Container = styled.div`
 	justify-content: center;
 	width: var(--padded-width);
 	max-width: var(--content-width);
+	margin-top: 40px;
 `;
 
 const FlexRow = styled.div`

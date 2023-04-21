@@ -9,12 +9,14 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	overflow: hidden;
 	pointer-events: none;
+	overflow-x: hidden;
 `;
 
 const wave = styled.img`
 	min-width: var(--min-wave-width);
+	width: 100%;
+
 	object-fit: fill;
 	@media (min-width: 1200px) {
 		transform: scaleY(0.6);

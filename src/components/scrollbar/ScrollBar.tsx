@@ -87,7 +87,7 @@ const NavigatorContainer = styled.div<{ menuOpen: boolean; top: string }>`
 	z-index: 220;
 
 	transform: translateY(calc(-1 * (var(--navigator-height))));
-	transition: var(--transition-default);
+	transition: transform 0.5s ease-in-out;
 
 	cursor: pointer;
 
