@@ -15,21 +15,24 @@
 	--min-wave-width: 800px;
 	--absolute-width: 100vw;
 	--padded-width: calc(var(--absolute-width) - 20px);
-	--border-radius: 2px;
+	--border-radius: 4px;
 	--progress-bar-width: 2px;
 	--progress-bar-color: #ff6b6b;
 	--menu-background-color: #d4d4d4;
 	--menu-background-color-passed: #005f6b;
 	--menu-text-color: #1e1e1e;
 	--menu-text-color-passed: #ff6b6b;
+	--menu-size: 40px;
+	--menu-font-size: 30px;
 	--navigator-width: 40px;
 	--navigator-height: 40px;
-	--navigator-width-collapsed: 8px;
+	--navigator-width-collapsed: 16px;
 	--navigator-height-collapsed: 60px;
 	--navigator-icon-size: 30px;
 	--navigator-box-shadow-passed: inset 0 0 20px 4px var(--color-gradient2);
-	--navigator-box-shadow-passed-collapsed: inset 0 0 4px 2px
+	--navigator-box-shadow-passed-collapsed: inset 0 0 8px 4px
 		var(--color-gradient2);
+	--transition-default: all 0.5s ease-in-out;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;

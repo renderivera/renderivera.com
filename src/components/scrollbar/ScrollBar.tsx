@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import Progress from "./Progress";
 import { navType } from "../../types/navType";
-import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { VscMenu, VscClose } from "react-icons/vsc";
+import { BsGripVertical } from "react-icons/bs";
 
 const Container = styled.div`
 	height: 100vh;
-	width: 10%;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -22,7 +22,7 @@ const NavigatorDot = styled.div<{ passed: boolean }>`
 
 	font-size: var(--navigator-icon-size);
 
-	transition: all 0.5s ease-in-out;
+	transition: var(--transition-default);
 
 	background-color: ${({ passed }) =>
 		passed
@@ -31,7 +31,9 @@ const NavigatorDot = styled.div<{ passed: boolean }>`
 	color: ${({ passed }) =>
 		passed ? "var(--menu-text-color-passed)" : "var(--menu-text-color)"};
 	box-shadow: ${({ passed }) =>
-		passed ? "var(--navigator-box-shadow-passed)" : "none"};
+		passed
+			? "var(--navigator-box-shadow-passed)"
+			: "var(--navigator-box-shadow)"};
 `;
 
 const NavigatorText = styled.p`
@@ -42,7 +44,7 @@ const NavigatorText = styled.p`
 
 	box-shadow: var(--navigator-box-shadow);
 
-	transition: all 0.5s ease-in-out;
+	transition: var(--transition-default);
 	font-size: var(--navigator-icon-size);
 	padding: 0 5px;
 	margin: 0;
@@ -60,14 +62,32 @@ const NavigatorText = styled.p`
 	justify-content: center;
 `;
 
+const NavigatorIconCollapsed = styled.div`
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+	transition: all 0.5s ease-in-out;
+	transform: translateX(1px);
+`;
+
+const NavigatorIconOpen = styled.div`
+	position: absolute;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.5s ease-in-out;
+`;
+
 const NavigatorContainer = styled.div<{ menuOpen: boolean; top: string }>`
 	position: fixed;
 	top: ${({ top }) => top};
-	right: 0;
+	right: 1px;
 	z-index: 220;
 
 	transform: translateY(calc(-1 * (var(--navigator-height))));
-	transition: all 0.5s ease-in-out;
+	transition: var(--transition-default);
 
 	cursor: pointer;
 
@@ -85,51 +105,45 @@ const NavigatorContainer = styled.div<{ menuOpen: boolean; top: string }>`
 
 	${NavigatorText} {
 		transform: ${({ menuOpen }) =>
-			menuOpen ? "rotateY(0deg); " : "rotateY(90deg); "};
+			menuOpen ? "rotateY(0deg)" : "rotateY(90deg)"};
 	}
 
-	svg {
-		position: absolute;
-
+	${NavigatorIconOpen} {
 		transform: ${({ menuOpen }) =>
-			menuOpen ? "rotateY(0deg); " : "rotateY(90deg); "};
-		transition: transform 0.5s ease-in-out;
+			menuOpen ? "rotateY(0deg)" : "rotateY(90deg)"};
+	}
+
+	${NavigatorIconCollapsed} {
+		opacity: ${({ menuOpen }) => (!menuOpen ? "1 " : "0 ")};
 	}
 `;
 
 const MenuIcon = styled.div<{ show: boolean }>`
-	transition: all 0.5s ease-in-out;
+	transition: var(--transition-default);
 	transform-origin: center;
-	opacity: ${({ show }) => (show ? "1" : "0")};
+
+	transform: ${({ show }) => (show ? "scale(1); " : "scale(0); ")};
+
 	position: absolute;
 	top: 5px;
 	right: 5px;
+	line-height: 1;
 `;
 
 const Menu = styled.div`
 	position: fixed;
 	color: var(--menu-text-color);
 	background-color: var(--menu-background-color);
-	border-radius: var(--border-radius) 0 0 var(--border-radius);
-	top: 0;
-	right: 0;
-	height: 40px;
-	width: 40px;
-	font-size: 30px;
-	line-height: 1;
-	box-shadow: var(--navigator-box-shadow);
+	border-radius: var(--border-radius);
+	top: 0px;
+	right: 1px;
+	height: var(--menu-size);
+	width: var(--menu-size);
+	font-size: var(--menu-font-size);
+
 	z-index: 150;
 	cursor: pointer;
-	transition: all 0.5s ease-in-out;
-
-	:hover {
-		background-color: var(--color-gradient1);
-		box-shadow: var(--navigator-box-shadow-passed);
-
-		${MenuIcon} {
-			color: var(--color-gradient2);
-		}
-	}
+	transition: var(--transition-default);
 `;
 
 export default function ScrollBar({ navs }: { navs: navType[] }) {
@@ -154,10 +168,10 @@ export default function ScrollBar({ navs }: { navs: navType[] }) {
 		<Container>
 			<Menu onPointerDown={() => setMenuOpen(!menuOpen)}>
 				<MenuIcon show={!menuOpen}>
-					<BsEye />
+					<VscMenu />
 				</MenuIcon>
 				<MenuIcon show={menuOpen}>
-					<BsEyeSlash />
+					<VscClose />
 				</MenuIcon>
 			</Menu>
 			<div>
@@ -183,7 +197,12 @@ export default function ScrollBar({ navs }: { navs: navType[] }) {
 							onPointerDown={() => ref.scrollIntoView({ behavior: "smooth" })}
 						>
 							<NavigatorText>{target.name}</NavigatorText>
-							<NavigatorDot passed={passedNavs[i]}>{target.icon}</NavigatorDot>
+							<NavigatorDot passed={passedNavs[i]}>
+								<NavigatorIconOpen>{target.icon}</NavigatorIconOpen>
+								<NavigatorIconCollapsed>
+									<BsGripVertical />
+								</NavigatorIconCollapsed>
+							</NavigatorDot>
 						</NavigatorContainer>
 					);
 				})}

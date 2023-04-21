@@ -8,10 +8,10 @@ import Footer from "./components/Footer";
 import { useRef } from "react";
 import Seperator from "./components/Seperator";
 import {
-	BsEmojiLaughing,
 	BsCodeSlash,
 	BsShop,
 	BsChevronBarDown,
+	BsPerson,
 } from "react-icons/bs";
 
 import { navType } from "./types/navType";
@@ -29,8 +29,8 @@ const Section = styled.div``;
 
 export default function App() {
 	const introNav: navType = {
-		name: "Intro",
-		icon: <BsEmojiLaughing />,
+		name: "About",
+		icon: <BsPerson />,
 		element: useRef<HTMLDivElement>(null),
 		position: 0,
 	};
