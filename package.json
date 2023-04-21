@@ -10,7 +10,6 @@
 		"serve": "http-server ./dist --brotli --gzip"
 	},
 	"dependencies": {
-		"atropos": "^1.0.2",
 		"http-server": "^14.1.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
