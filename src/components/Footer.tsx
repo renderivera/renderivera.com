@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import seperatorTop from "../assets/seperator-top.svg";
-import { RefObject } from "react";
+import seperatorTop from "../assets/waves/seperator-top.svg";
 
 const Container = styled.div`
 	width: var(--absolute-width);

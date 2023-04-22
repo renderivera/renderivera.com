@@ -5,8 +5,7 @@ export const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: var(--padded-width);
-	max-width: var(--content-width);
+
 	gap: 10px;
 `;
 
@@ -60,6 +59,4 @@ export const LinkList = styled.div`
 	align-items: center;
 	justify-content: center;
 	gap: 40px;
-	width: var(--padded-width);
-	max-width: var(--content-width);
 `;

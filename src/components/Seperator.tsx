@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import seperatorTop from "../assets/seperator-top.svg";
-import seperatorBottom from "../assets/seperator-bottom.svg";
+import seperatorTop from "../assets/waves/seperator-top.svg";
+import seperatorBottom from "../assets/waves/seperator-bottom.svg";
 
 const Container = styled.div`
 	width: var(--absolute-width);
@@ -22,10 +22,10 @@ const wave = styled.img`
 		transform: scaleY(0.6);
 	}
 	@media (min-aspect-ratio: 16/9) {
-		transform: scaleY(0.6);
+		transform: scaleY(0.5);
 	}
 	@media (min-aspect-ratio: 20/9) {
-		transform: scaleY(0.5);
+		transform: scaleY(0.4);
 	}
 `;
 

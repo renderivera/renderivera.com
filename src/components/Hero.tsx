@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import waveBottom from "../assets/hero-wave-bottom.svg";
-import waveTop from "../assets/hero-wave-top.svg";
-import seperatorTop from "../assets/seperator-bottom.svg";
+import waveBottom from "../assets/waves/hero-wave-bottom.svg";
+import waveTop from "../assets/waves/hero-wave-top.svg";
+import seperatorTop from "../assets/waves/seperator-bottom.svg";
 
 const Main = styled.div`
 	width: var(--absolute-width);

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import portrait from "../../assets/portrait-reinhard-min.jpg";
+import portrait from "../../assets/portrait-reinhard-min.webp";
 import Paragraph from "./Paragraph";
 import Quote from "./Quote";
 import AnimatedImage from "../AnimatedImage";
@@ -10,8 +10,7 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: var(--padded-width);
-	max-width: var(--content-width);
+
 	margin-top: 40px;
 `;
 

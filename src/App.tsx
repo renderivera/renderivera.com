@@ -7,14 +7,12 @@ import ScrollBar from "./components/scrollbar/ScrollBar";
 import Footer from "./components/Footer";
 import { useRef } from "react";
 import Seperator from "./components/Seperator";
-import {
-	BsCodeSlash,
-	BsShop,
-	BsChevronBarDown,
-	BsPerson,
-} from "react-icons/bs";
+import { BsCodeSlash, BsShop, BsChevronBarDown } from "react-icons/bs";
+import { RiContactsLine } from "react-icons/ri";
+import { AiOutlineMessage } from "react-icons/ai";
 
 import { navType } from "./types/navType";
+import Contact from "./components/Contact";
 
 const Container = styled.div`
 	display: flex;
@@ -25,12 +23,15 @@ const Container = styled.div`
 	justify-content: center;
 `;
 
-const Section = styled.div``;
+const Section = styled.div`
+	width: var(--padded-width);
+	max-width: var(--content-width);
+`;
 
 export default function App() {
 	const introNav: navType = {
 		name: "About",
-		icon: <BsPerson />,
+		icon: <RiContactsLine />,
 		element: useRef<HTMLDivElement>(null),
 		position: 0,
 	};
@@ -49,16 +50,14 @@ export default function App() {
 		position: 0,
 	};
 
-	const endNav: navType = {
-		name: "End",
-		icon: <BsChevronBarDown />,
+	const contactNav: navType = {
+		name: "Contact",
+		icon: <AiOutlineMessage />,
 		element: useRef<HTMLDivElement>(null),
 		position: 0,
 	};
 
-	const navs: navType[] = [introNav, gptNav, ecomNav, endNav];
-
-	console.log("rerender app");
+	const navs: navType[] = [introNav, gptNav, ecomNav, contactNav];
 
 	return (
 		<Container>
@@ -74,9 +73,11 @@ export default function App() {
 			<Section ref={ecomNav.element}>
 				<Ecommerce />
 			</Section>
-			<Section ref={endNav.element}>
-				<Footer />
+			<Seperator />
+			<Section ref={contactNav.element}>
+				<Contact />
 			</Section>
+			<Footer />
 			<ScrollBar navs={navs} />
 		</Container>
 	);
