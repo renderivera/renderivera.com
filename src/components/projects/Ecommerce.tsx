@@ -1,4 +1,4 @@
-import CodegptGalaxyMockup from "../../assets/codegpt-Galaxy-S20-mockup-min.webp";
+import CodegptGalaxyMockup from "../../assets/codegpt-galaxy-s20-mockup-min.webp";
 import CodegptComponentDiagram from "../../assets/codegpt-component-diagram-min.webp";
 import AnimatedImage from "../AnimatedImage";
 import {
