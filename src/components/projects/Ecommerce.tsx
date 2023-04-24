@@ -1,5 +1,5 @@
-import CodegptGalaxyMockup from "../../assets/codegpt-galaxy-s20-mockup-min.webp";
-import CodegptComponentDiagram from "../../assets/codegpt-component-diagram-min.webp";
+import GalaxyMockup from "../../assets/ecommerce-galaxy-s20.webp";
+import ComponentDiagram from "../../assets/ecommerce-components.webp";
 import AnimatedImage from "../AnimatedImage";
 import {
 	Container,
@@ -17,28 +17,28 @@ import { BsGithub, BsGlobe } from "react-icons/bs";
 export default function CodeGpt() {
 	return (
 		<Container>
-			<Heading>Ecommerce</Heading>
+			<Heading>Ecommerce Demo</Heading>
 			<Paragraph>
-				CodeGPT.ninja is a web-based platform that enables users to write and
-				explain code with the help of an advanced artificial intelligence
-				language model.
+				This Ecommerce website provides customers with a smooth and seamless
+				shopping experience. The website uses modern web technologies and design
+				principles to offer a user-friendly and efficient interface.
 			</Paragraph>
 			<Paragraph>
-				The application is built using modern web development tools and
-				technologies to deliver a user-friendly and efficient experience.
+				The website is built using Typescript and React.js with the Vite build
+				tool, providing a typesafe, fast and responsive user experience.
 			</Paragraph>
 			<LinkList>
-				<Link href="https://codegpt.ninja">
+				<Link href="https://shop-frontend-production-87aa.up.railway.app/">
 					<BsGlobe />
 					<p>Live</p>
 				</Link>
 
-				<Link href="https://github.com/renderivera/codegptninja-frontend">
+				<Link href="https://github.com/renderivera/shop-frontend">
 					<BsGithub />
 					<p>Client</p>
 				</Link>
 
-				<Link href="https://github.com/renderivera/codegptninja-backend">
+				<Link href="https://github.com/renderivera/shop-backend">
 					<BsGithub />
 					<p>Server</p>
 				</Link>
@@ -47,114 +47,101 @@ export default function CodeGpt() {
 			<SubHeading>Description</SubHeading>
 			<Content>
 				<AnimatedImage
-					src={CodegptGalaxyMockup}
-					description="CodeGPT.ninja on a Phone"
-					className="image-chatgpt-phone"
+					src={GalaxyMockup}
+					description="Ecom-Demo on a Phone"
+					className="image-galaxy-s20"
 				/>
 				<Flex>
 					<Paragraph>
-						On the client-side, the application is built with React.js and
-						Vanilla Javascript. React.js is a popular and widely used JavaScript
-						library that provides a modular approach to building user
-						interfaces.
+						The application is optimized for SEO with relevant keywords and meta
+						description. The client-side of the application has a Google
+						PageSpeed score of 100. This ensures that the application is easily
+						discoverable by search engines, making it more accessible to users.
 					</Paragraph>
 					<Paragraph>
-						To provide users with an intuitive interface, the application has
-						two main pages: write and explain code. The pages are routed using
-						React Router DOM, which helps in rendering the correct components
-						based on the URL.
+						To ensure optimal security, the server is configured with SSL
+						encryption, which encrypts the data sent between the client and the
+						server.
 					</Paragraph>
 					<Paragraph>
-						Users can select their desired programming language, which is saved
-						in the application state using Redux slices. This makes it easy to
-						switch between pages while maintaining the selected programming
-						language. The syntax highlighting feature is achieved using prismjs
-						and react-simple-code-editor, which provide an elegant way to
-						display the code.
+						Performance is a key aspect of any modern website, and this project
+						has been optimized for speed and efficiency. The website uses an
+						http-server that supports Brotli and Gzip compression, which reduces
+						the size of the files sent over the network, resulting in faster
+						load times.
 					</Paragraph>
 				</Flex>
 				<Paragraph>
-					The application is optimized for SEO with relevant keywords and
-					metadescription. The client-side of the application has a Google
-					PageSpeed score of 100. This ensures that the application is easily
-					discoverable by search engines, making it more accessible to users.
+					Client, Server and the Database are deployed on Railway.app, which
+					provides continuous integration (CI) and seamless deployment. This
+					means that any changes made to the production repository are
+					automatically deployed to the server, ensuring that the application is
+					always up-to-date.
 				</Paragraph>
 				<Paragraph>
-					The application is deployed on Railway.app, which provides continuous
-					integration (CI) and seamless deployment to the server. This means
-					that any changes made to the production repository are automatically
-					deployed to the server, ensuring that the application is always
-					up-to-date.
-				</Paragraph>
-				<Paragraph>
-					CodeGPT.ninja is built with Vite, which is a fast and efficient build
-					tool for modern web development. CodeGPT.ninja also features
-					end-to-end testing with vitest, which helps in identifying potential
-					bugs or issues in the code. This ensures that the application is
-					always running smoothly and any issues are caught early on in the
-					development process.
-				</Paragraph>
-				<Paragraph>
-					To ensure optimal security, the server is configured with SSL
-					encryption, which encrypts the data sent between the client and the
-					server.
-				</Paragraph>
-				<Paragraph>
-					In summary, CodeGPT.ninja is a robust and efficient application that
-					leverages advanced AI technology to provide users with an intuitive
-					and user-friendly platform to write and explain code. The use of
-					modern web development tools and technologies ensures that the
-					application is fast, responsive, and easily accessible to users.
+					In summary, this Ecommerce website is a modern, performant, and
+					feature-rich platform that provides customers with a seamless shopping
+					experience. By utilizing modern web technologies and design
+					principles, this project creates an application that is easy to use,
+					maintain, and scale.
 				</Paragraph>
 			</Content>
 			<SubHeading>Architecture</SubHeading>
 			<Content>
 				<Flex>
 					<Paragraph>
-						The architecture of CodeGPT.ninja consists of a frontend/client and
-						a backend/server. The client sends the user's code to the server,
-						which in turn sends the code to the OpenAI API. The API returns the
-						code to the server, which is then sent back to the client.
+						This project consists of 5 main components. Client, Server,
+						Postgresql database, Google Firebase, and Stripe. The client
+						requests products and categories from the server, which in turn
+						requests the data from the SQL database, and returns it to the
+						client.
 					</Paragraph>
 					<Paragraph>
-						CodeGPT.ninja uses the OpenAI API's text-davinci-003 model to
-						generate and explain code. This AI model is capable of natural
-						language processing and is trained to respond to prompts in a
-						human-like manner. By leveraging this AI model, CodeGPT.ninja can
-						provide an advanced and intelligent way for users to write and
-						explain code.
+						Both Client/Frontend and Server/Backend are written in Typescript to
+						ensure typesafe development and increase security.
+					</Paragraph>
+					<Paragraph>
+						User authentication is an essential feature of any Ecommerce
+						website, and this project uses Firebase authentication to provide a
+						secure and scalable authentication solution.
+					</Paragraph>
+					<Paragraph>
+						Prisma is used for schema definition and Postgres database access,
+						providing a type-safe way of interacting with the database.
+						Additionally it is easy to make, manage, track schema migrations
+						directly through the server repository.
 					</Paragraph>
 				</Flex>
 				<AnimatedImage
-					src={CodegptComponentDiagram}
-					description="CodeGPT.ninja Figma Diagram"
-					className="image-chatgpt-diagram"
+					src={ComponentDiagram}
+					description="Ecom-Demo Figma Diagram"
+					className="image-ecom-diagram"
 				/>
+
 				<Paragraph>
-					To ensure a smooth and seamless user experience, the application uses
-					Redux Toolkit for state management. Redux Toolkit is a powerful tool
-					that helps in organizing and managing the application state, making it
-					easier to debug and test the code.
+					For payment processing, the Stripe API is utilized, which is a secure
+					and reliable payment gateway. Redux Toolkit is used for state
+					management, providing a set of powerful tools and best practices for
+					managing state in a Redux application.
 				</Paragraph>
 				<Paragraph>
-					Additionally, Redux Toolkit Query is used to manage server/backend
-					access and result caching, which optimizes the performance of the
-					application.
+					Slices are utilized for managing cart and user data, providing a
+					modular approach to reducers that makes them easier to use and
+					maintain. The result is an optimized and efficient state management
+					system that provides a seamless user experience.
 				</Paragraph>
 				<Paragraph>
-					The backend/server is built using Express.js and uses the OpenAI API
-					to generate and explain code. The application's secret key is stored
-					in an environment variable to ensure its security. The backend/server
-					is configured with CORS policy to restrict API access to the
-					frontend/client only, avoiding any potential misuse.
+					Redux Toolkit Query is used for backend communication and caching,
+					providing an efficient way to communicate with the backend and cache
+					responses.
 				</Paragraph>
 				<Paragraph>
-					In summary, the architecture of CodeGPT.ninja is a typical
-					client-server architecture, where the frontend and backend are built
-					using different technologies to achieve their respective
-					responsibilities. The backend communicates with the OpenAI API to
-					generate code and provides the necessary data to the frontend to
-					display the output to the user.
+					React Router Dom is used for handling client-side routing, making it
+					easy to navigate between different pages of the shop.
+				</Paragraph>
+				<Paragraph>
+					The website is styled using styled-components, which provides a unique
+					way of writing CSS that makes it easier to write and maintain.
 				</Paragraph>
 			</Content>
 		</Container>

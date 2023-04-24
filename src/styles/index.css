@@ -116,11 +116,11 @@ img {
 	border-radius: 50%;
 }
 
-.image-chatgpt-phone {
+.image-galaxy-s20 {
 	margin: 40px;
 }
 
-.image-chatgpt-phone img {
+.image-galaxy-s20 img {
 	width: 300px;
 	height: 652px;
 }
@@ -130,4 +130,11 @@ img {
 .image-chatgpt-diagram img {
 	width: 300px;
 	height: 425px;
+}
+.image-ecom-diagram {
+	margin: 40px;
+}
+.image-ecom-diagram img {
+	width: 300px;
+	height: 600px;
 }

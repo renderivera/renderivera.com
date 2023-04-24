@@ -1,5 +1,5 @@
-import CodegptGalaxyMockup from "../../assets/codegpt-galaxy-s20-mockup-min.webp";
-import CodegptComponentDiagram from "../../assets/codegpt-component-diagram-min.webp";
+import CodegptGalaxyMockup from "../../assets/codegpt-galaxy-s20.webp";
+import CodegptComponentDiagram from "../../assets/codegpt-components.webp";
 import AnimatedImage from "../AnimatedImage";
 import {
 	Container,
@@ -49,7 +49,7 @@ export default function CodeGpt() {
 				<AnimatedImage
 					src={CodegptGalaxyMockup}
 					description="CodeGPT.ninja on a Phone"
-					className="image-chatgpt-phone"
+					className="image-galaxy-s20"
 				/>
 				<Flex>
 					<Paragraph>
