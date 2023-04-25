@@ -1,8 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
 const float = keyframes`
-	0% { transform: rotateY(-10deg) rotateX(-2deg) rotate(-0.5deg) translateY(-3px)  }
-	100% { transform: rotateY(10deg) rotateX(2deg) rotate(0.5deg) translateY(3px) }
+	0% { transform: rotateY(-5eg) rotateX(-5deg) rotateZ(-0.5deg) translateY(-3px) translateX(-2px)  }
+	100% { transform: rotateY(5deg) rotateX(5deg) rotateZ(0.5deg) translateY(3px) translateX(2px)}
 `;
 
 const Container = styled.div`
