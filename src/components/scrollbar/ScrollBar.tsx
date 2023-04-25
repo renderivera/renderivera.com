@@ -5,6 +5,9 @@ import { navType } from "../../types/navType";
 import { VscMenu, VscClose } from "react-icons/vsc";
 import { BsGripVertical } from "react-icons/bs";
 
+const menuSize = 40;
+const navigatorHeightCollapsed = 60;
+
 const Container = styled.div`
 	height: 100vh;
 	position: fixed;
@@ -80,6 +83,12 @@ const NavigatorIconOpen = styled.div`
 	transition: transform 0.5s ease-in-out;
 `;
 
+const collapsedStyle = `
+--navigator-height: ${navigatorHeightCollapsed}px; 
+--navigator-width: var(--navigator-width-collapsed); 
+--navigator-box-shadow-passed: var(--navigator-box-shadow-passed-collapsed);
+`;
+
 const NavigatorContainer = styled.div<{ menuOpen: boolean; top: string }>`
 	position: fixed;
 	top: ${({ top }) => top};
@@ -91,12 +100,7 @@ const NavigatorContainer = styled.div<{ menuOpen: boolean; top: string }>`
 
 	cursor: pointer;
 
-	${({ menuOpen }) =>
-		menuOpen
-			? ""
-			: "--navigator-height: var(--navigator-height-collapsed); " +
-			  "--navigator-width: var(--navigator-width-collapsed); " +
-			  "--navigator-box-shadow-passed: var(--navigator-box-shadow-passed-collapsed); "}
+	${({ menuOpen }) => (menuOpen ? "" : collapsedStyle)}
 
 	${NavigatorDot} {
 		height: var(--navigator-height);
@@ -137,8 +141,8 @@ const Menu = styled.div`
 	border-radius: var(--border-radius);
 	top: 0px;
 	right: 1px;
-	height: var(--menu-size);
-	width: var(--menu-size);
+	height: ${menuSize}px;
+	width: ${menuSize}px;
 	font-size: var(--menu-font-size);
 
 	z-index: 150;
@@ -164,6 +168,8 @@ export default function ScrollBar({ navs }: { navs: navType[] }) {
 		document.onresize = handleResize;
 	}, []);
 
+	const menuItemCutoff = (menuSize + navigatorHeightCollapsed) / windowHeight;
+
 	return (
 		<Container>
 			<Menu onPointerDown={() => setMenuOpen(!menuOpen)}>
@@ -183,6 +189,8 @@ export default function ScrollBar({ navs }: { navs: navType[] }) {
 						(ref.offsetTop + windowHeight) / totalHeight,
 						1
 					);
+
+					if (ratio < menuItemCutoff) return null; // avoid overlapping on small screens
 
 					const percent = (ratio * 100).toFixed(2);
 					const top = `${percent}%`;
