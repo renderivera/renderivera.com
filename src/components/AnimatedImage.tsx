@@ -20,11 +20,6 @@ const Image = styled.img`
 		alternate;
 `;
 
-const Description = styled.p`
-	margin: 0;
-	font-weight: lighter;
-`;
-
 export default function AnimatedImage({
 	src,
 	className,
@@ -37,7 +32,6 @@ export default function AnimatedImage({
 	return (
 		<Container className={className}>
 			<Image src={src} alt={description} />
-			<Description>{description}</Description>
 		</Container>
 	);
 }
