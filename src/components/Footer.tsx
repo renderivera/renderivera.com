@@ -28,7 +28,7 @@ const Text = styled.div`
 export default function Footer() {
 	return (
 		<Container className="nav-target" id="End">
-			<Text>© 2023 Renderivera</Text>
+			<Text>© 2023 Reinhard Zach</Text>
 			<Wave src={seperatorTop} alt="wave background" />
 		</Container>
 	);

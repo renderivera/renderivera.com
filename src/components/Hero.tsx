@@ -96,7 +96,7 @@ export default function Hero() {
 				<Content>
 					<WaveTop src={waveTop} alt="wave background" />
 					<Logo>
-						<Heading>Renderivera</Heading>
+						<Heading>Reinhard Zach</Heading>
 						<SubHeading>Full Stack Development</SubHeading>
 					</Logo>
 					<WaveBottom src={waveBottom} alt="wave background" />
@@ -108,7 +108,3 @@ export default function Hero() {
 		</Main>
 	);
 }
-
-/*
-
-*/

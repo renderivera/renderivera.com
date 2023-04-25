@@ -46,7 +46,7 @@ export default function Intro() {
 			<FlexRow>
 				<AnimatedImage
 					src={portrait}
-					description="Reinhard Zach, Renderivera"
+					description="Reinhard Zach"
 					className="image-portrait"
 				/>
 				<Quote>
