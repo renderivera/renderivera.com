@@ -15,19 +15,25 @@ const Content = styled.div`
 `;
 
 const QuoteCharLeft = styled.div`
-	font-size: 1.5em;
+	font-size: 25px;
 	line-height: 0.75;
 `;
 
 const QuoteCharRight = styled(QuoteCharLeft)`
 	height: 0px;
 	margin-left: auto;
-	transform: translate(0px, -20px);
+	transform: translate(-5px, -20px);
 `;
 
 const Text = styled.p`
 	margin: 0;
-	font-size: 1.2em;
+	line-height: 1.25;
+	font-size: large;
+	font-weight: lighter;
+`;
+const Name = styled.p`
+	margin: 0;
+	font-weight: lighter;
 	font-style: italic;
 `;
 
@@ -39,9 +45,11 @@ export default function Quote({ children }: { children: React.ReactNode }) {
 			</QuoteCharLeft>
 			<Content>
 				<Text>{children}</Text>
+
 				<QuoteCharRight>
 					<FaQuoteRight />
 				</QuoteCharRight>
+				<Name>-Reinhard Zach</Name>
 			</Content>
 		</Container>
 	);

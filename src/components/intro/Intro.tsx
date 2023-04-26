@@ -3,15 +3,13 @@ import portrait from "../../assets/portrait-reinhard-min.webp";
 import Paragraph from "./Paragraph";
 import Quote from "./Quote";
 import AnimatedImage from "../AnimatedImage";
-import { BsTwitter, BsGithub } from "react-icons/bs";
 
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
-	margin-top: 40px;
+	gap: 40px;
 `;
 
 const FlexRow = styled.div`
@@ -21,51 +19,23 @@ const FlexRow = styled.div`
 	align-items: center;
 	justify-content: center;
 	gap: 40px;
-`;
-
-const Socials = styled(FlexRow)`
-	margin: 40px;
-`;
-
-const SocialLink = styled.a`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: 4px;
-
-	p {
-		margin: 0;
-		line-height: 1;
-	}
+	margin-top: 40px;
 `;
 
 export default function Intro() {
 	return (
 		<Container className="nav-target" id="Intro">
-			<FlexRow>
+			<FlexRow style={{ gap: "0" }}>
 				<AnimatedImage
 					src={portrait}
 					description="Reinhard Zach"
 					className="image-portrait"
 				/>
 				<Quote>
-					As a highly passionate Full Stack Software Engineer with over 10 years
-					of professional experience, I have had the privilege of developing
-					solutions for renowned stakeholders like Bank of America, HBO,
-					Starbucks, and BMW.
+					It's been a privilege for me to develop solutions for renowned
+					stakeholders such as Bank of America, HBO, Starbucks, and BMW.
 				</Quote>
 			</FlexRow>
-			<Socials>
-				<SocialLink href="https://twitter.com/renderivera">
-					<BsTwitter />
-					<p>Twitter</p>
-				</SocialLink>
-				<SocialLink href="https://github.com/renderivera">
-					<BsGithub />
-					<p>Github</p>
-				</SocialLink>
-			</Socials>
 			<FlexRow>
 				<Paragraph heading="A Tale of Determination">
 					I am a hard-working and quick learner who completed a computer science
