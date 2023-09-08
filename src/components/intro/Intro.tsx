@@ -22,9 +22,22 @@ const FlexRow = styled.div`
 	margin-top: 40px;
 `;
 
+const YouTube = styled.iframe`
+	aspect-ratio: 16 / 9;
+	width: 400px;
+	border: 0px;
+`;
+
 export default function Intro() {
 	return (
 		<Container className="nav-target" id="Intro">
+			<FlexRow>
+				<YouTube
+					src="https://www.youtube.com/embed/aIjiJ_4GV_U?si=mQIJOMWFYtUh1abB&amp;controls=0" 
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" 
+					allowFullScreen>
+				</YouTube>
+			</FlexRow>
 			<FlexRow style={{ gap: "0" }}>
 				<AnimatedImage
 					src={portrait}
